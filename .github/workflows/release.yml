@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow
+name: Release pipeline
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repo
+        uses: actions/checkout@v2
+        # with: # https://stackoverflow.com/a/65081720
+        #   ref: ${{ github.event.workflow_run.head_branch }}
+        #   fetch-depth: "0"
+      - name: Configure git
+        run: |
+          git config --global user.email "13139061+mikenabhan@users.noreply.github.com"
+          git config --global user.name "Github Actions Pipeline"
+      - name: Install auto
+        run: |
+          curl -vkL -o - https://github.com/intuit/auto/releases/download/v10.34.2/auto-linux.gz | gunzip > /usr/local/bin/auto && \
+          chmod a+x /usr/local/bin/auto
+      - name: Publish new version
+        run: GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" auto shipit
+      # - id: version
+      #   name: Output new version
+      #   run: echo "::set-output name=version::$(poetry version -s)"
+
