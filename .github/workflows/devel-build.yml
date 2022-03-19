@@ -9,6 +9,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+    - name: Check Out Repo
+      uses: actions/checkout@v2
     - name: Declare some variables
       id: vars
       shell: bash
