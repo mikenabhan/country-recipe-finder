@@ -11,9 +11,9 @@ jobs:
     steps:
       - name: Check Out Repo
         uses: actions/checkout@v2
-        # with: # https://stackoverflow.com/a/65081720
-        #   ref: ${{ github.event.workflow_run.head_branch }}
-        #   fetch-depth: "0"
+        with: # https://stackoverflow.com/a/65081720
+          ref: ${{ github.event.workflow_run.head_branch }}
+          fetch-depth: "0"
       - name: Configure git
         run: |
           git config --global user.email "13139061+mikenabhan@users.noreply.github.com"
