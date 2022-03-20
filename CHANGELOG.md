@@ -1,3 +1,15 @@
+# v1.0.3 (Sun Mar 20 2022)
+
+#### 🐛 Bug Fix
+
+- Devel [#7](https://github.com/mikenabhan/country-recipe-finder/pull/7) ([@mikenabhan](https://github.com/mikenabhan))
+
+#### Authors: 1
+
+- Mike Nabhan ([@mikenabhan](https://github.com/mikenabhan))
+
+---
+
 # v1.0.2 (Sat Mar 19 2022)
 
 #### 🐛 Bug Fix
